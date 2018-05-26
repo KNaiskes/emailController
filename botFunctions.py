@@ -1,6 +1,7 @@
 import imaplib
 import email
 import re
+from keys import *
 
 def readEmail(username, password):
 	mail = imaplib.IMAP4_SSL("imap.gmail.com")
@@ -32,6 +33,14 @@ def readEmail(username, password):
 		mbody = cleaner = re.compile("<.*?>")
 		cleaned = re.sub(mbody, "", body)
 		cleaned = cleaned.strip()
+
+		mSender = (email.utils.parseaddr(emailMessage["From"])[1])
+
+		if(mSender == master):
+			#TODO: check command if exits
+			# and if exists run it
+
+
 		
 		print("Checked")
 	except IndexError:
