@@ -2,21 +2,26 @@ import imaplib
 import email
 import re
 from keys import *
+from mqttFunctions import *
 
-def led_strip_on():
-	print("led string is on")
-def led_strip_off():
-	print("led strip off")
+def led_strip_available_commands(command):
+	states = ["on", "off"]
+	colors = ["red","orange","dark_yellow","yellow","yellow2","green","pea","cyan","light_blue","sky_blue","blue","dark_blue","purple","violet","pink","white","flash","strobe","fade","smooth"]
 
-def availableCommands(command):
-	commands = ["led strip on", "led strip off"]
-	functions = [led_strip_on, led_strip_off]
-	try:
-		index = commands.index(command)
-		functions[index]()
-	except ValueError:
-		#send back an email(;)
-		pass
+	change_color_command = "led strip change color:"
+	change_state_command = "led strip change state:"
+
+	if command[0:23] == change_state_command:
+		for s in states:
+			if s in command:
+				return s
+	elif command[0:23] == change_color_command[0:23]:
+		for c in colors:
+			if c in command:
+				return c
+	else:
+		return None
+
 
 def readEmail(username, password):
 	mail = imaplib.IMAP4_SSL("imap.gmail.com")
@@ -51,8 +56,8 @@ def readEmail(username, password):
 
 		mSender = (email.utils.parseaddr(emailMessage["From"])[1])
 
-		if(mSender == master):
-			availableCommands(cleaned)
+		if(mSender == master and led_strip_available_commands(cleaned) != None):
+			send_Mqtt_message("ledStrip", led_strip_available_commands(cleaned))
 		
 	except IndexError:
 		pass

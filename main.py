@@ -1,4 +1,7 @@
 from keys import *
 from botFunctions import *
+from time import sleep
 
-readEmail(sender, passw)
+while True:
+	readEmail(sender, passw)
+	sleep(5)
