@@ -1,7 +1,10 @@
 from keys import *
 from botFunctions import *
+from readEmail import *
 from time import sleep
 
+led_strip = Reademail(sender ,passw, master)
+
 while True:
-	readEmail(sender, passw)
+	led_strip.readCommands()
 	sleep(5)
