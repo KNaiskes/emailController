@@ -3,7 +3,7 @@ from botFunctions import *
 from readEmail import *
 from time import sleep
 
-led_strip = Reademail(sender ,passw, master)
+led_strip = Reademail(username, passw, master)
 
 while True:
 	led_strip.readCommands()

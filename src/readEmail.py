@@ -14,7 +14,10 @@ class Reademail:
 
 	def led_strip_available_commands(self, command):
 		states = ["on", "off"]
-		colors = ["red","orange","dark_yellow","yellow","yellow2","green","pea","cyan","light_blue","sky_blue","blue","dark_blue","purple","violet","pink","white","flash","strobe","fade","smooth"]
+		colors = ["red","orange","dark_yellow","yellow","yellow2",
+				"green","pea","cyan","light_blue","sky_blue",
+				"blue","dark_blue","purple","violet","pink",
+				"white","flash","strobe","fade","smooth"]
 
 		change_color_command = "led strip change color:"
 		change_state_command = "led strip change state:"
@@ -68,7 +71,3 @@ class Reademail:
 			
 		except IndexError:
 			pass
-			print("nope")
-			
-			#mail.close()
-			#mail.logout()
