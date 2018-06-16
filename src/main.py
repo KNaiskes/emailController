@@ -1,5 +1,4 @@
 from keys import *
-from botFunctions import *
 from readEmail import *
 from time import sleep
 
