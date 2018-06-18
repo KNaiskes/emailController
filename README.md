@@ -22,3 +22,9 @@ E-mail address that you will have to use in order to send commands to the led st
 
 1. PubSubClient
 2. IRremote
+
+
+#### Known issues
+
+- It is not possible to send the same E-mail twice in less than one minute as
+Gmail will block it as spam.
