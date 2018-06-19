@@ -23,6 +23,19 @@ E-mail address that you will have to use in order to send commands to the led st
 1. PubSubClient
 2. IRremote
 
+### Commands
+- All the commands must be inside the body of the E-mail (subject can be empty).
+
+- Turn it on or off:
+- led strip change state: on
+- led strip change state: off
+
+- Change color by picking up one color of the list ["red","orange","dark_yellow","yellow","yellow2",
+				"green","pea","cyan","light_blue","sky_blue",
+				"blue","dark_blue","purple","violet","pink",
+				"white","flash","strobe","fade","smooth"]
+
+- led strip change color: green
 
 #### Known issues
 
